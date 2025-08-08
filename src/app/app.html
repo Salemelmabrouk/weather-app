@@ -1,0 +1,25 @@
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 py-8 px-4">
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Weather App</h1>
+
+    <app-search (search)="onSearch($event)"></app-search>
+
+    <div *ngIf="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
+      <span class="block sm:inline">{{ error }}</span>
+    </div>
+
+    <app-weather-card [weatherData]="weatherData$ | async"></app-weather-card>
+    <app-weather-details [weatherData]="weatherData$ | async"></app-weather-details>
+  </div>
+</div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+<router-outlet />

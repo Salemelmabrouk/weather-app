@@ -1,0 +1,33 @@
+<div *ngIf="weatherData" class="bg-white rounded-xl shadow-md overflow-hidden max-w-md mx-auto my-4">
+  <div class="p-6">
+    <div class="flex justify-between items-center">
+      <div>
+        <h2 class="text-xl font-bold text-gray-800">{{ weatherData.name }}, {{ weatherData.sys.country }}</h2>
+        <p class="text-gray-600">{{ weatherData.weather[0].description | titlecase }}</p>
+      </div>
+      <div class="text-right">
+        <span class="text-3xl font-bold text-gray-800">{{ weatherData.main.temp | number:'1.0-0' }}°C</span>
+      </div>
+    </div>
+
+    <div class="flex justify-center my-4">
+      <img [src]="'https://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png'"
+           alt="Weather icon" class="h-24 w-24">
+    </div>
+
+    <div class="grid grid-cols-3 gap-4 mt-6">
+      <div class="text-center">
+        <p class="text-gray-500">Humidity</p>
+        <p class="font-semibold">{{ weatherData.main.humidity }}%</p>
+      </div>
+      <div class="text-center">
+        <p class="text-gray-500">Pressure</p>
+        <p class="font-semibold">{{ weatherData.main.pressure }} hPa</p>
+      </div>
+      <div class="text-center">
+        <p class="text-gray-500">Wind</p>
+        <p class="font-semibold">{{ weatherData.wind.speed }} m/s</p>
+      </div>
+    </div>
+  </div>
+</div>
